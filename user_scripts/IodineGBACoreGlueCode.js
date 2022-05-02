@@ -45,8 +45,9 @@ function registerBIOS() {
 }
 function downloadROM(gamename) {
     Iodine.pause();
-    const gameslug = window.location.pathname.split("?")[1];
-    downloadFile(`https://raw.githubusercontent.com/JoshMerlino/shsg-pfile/master/games/${gameslug}.gba`, registerROM, true);
+    const gameslug = window.location.search.substring(1);
+    console.log(gameslug)
+    downloadFile(gameslug, registerROM, true);
 }
 function registerROM() {
     clearTempString();
